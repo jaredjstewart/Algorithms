@@ -1,4 +1,4 @@
-package com.jaredjstewart.coursera.princeton.algorithms.week3;
+package com.jaredjstewart.coursera.princeton.algorithms.week4;
 
 public abstract class Sort {
      static boolean less(Comparable v, Comparable w) {

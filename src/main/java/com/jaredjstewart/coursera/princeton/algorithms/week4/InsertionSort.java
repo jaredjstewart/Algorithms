@@ -1,4 +1,4 @@
-package com.jaredjstewart.coursera.princeton.algorithms.week3;
+package com.jaredjstewart.coursera.princeton.algorithms.week4;
 
 /* Insertion sort uses ~1/4 N^2 compares and ~1/4 N^2 exchanges on average
 * Best case: N-1 compares, 0 exchanges.

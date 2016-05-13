@@ -1,4 +1,4 @@
-package com.jaredjstewart.coursera.princeton.algorithms.week3;
+package com.jaredjstewart.coursera.princeton.algorithms.week4;
 
 /*Simplified version of java.util.Date for the purpose of introducing Comparable */
 public class Date implements Comparable<Date> {

@@ -1,4 +1,4 @@
-package com.jaredjstewart.coursera.princeton.algorithms.week3;
+package com.jaredjstewart.coursera.princeton.algorithms.week4;
 
 /*Elementary O(n^2) sorting algorithm - in place comparison sort.
 Selection sort uses ~1/2 N^2 compares and N exchanges on average.
