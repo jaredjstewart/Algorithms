@@ -1,7 +1,7 @@
 package com.jaredjstewart.coursera.princeton.algorithms.week4;
 
 public abstract class Sort {
-     static boolean less(Comparable v, Comparable w) {
+     public static boolean less(Comparable v, Comparable w) {
         return v.compareTo(w) < 0;
     }
 
