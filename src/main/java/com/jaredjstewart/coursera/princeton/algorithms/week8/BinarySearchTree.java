@@ -1,6 +1,11 @@
 package com.jaredjstewart.coursera.princeton.algorithms.week8;
 
 
+import com.jaredjstewart.coursera.princeton.algorithms.week3.LinkedQueue;
+import edu.princeton.cs.algorithms.BST;
+
+import java.util.Queue;
+
 public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     private Node root;
 
@@ -93,6 +98,75 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
         else return size(node.left); // if (comparisonResult == 0)
     }
 
+    public Iterable<Key> keys(){
+        LinkedQueue<Key> q = new LinkedQueue<Key>();
+        inorder(root,q);
+        return q;
+    }
 
+    private void inorder(Node node, LinkedQueue<Key> q) {
+        if (node == null) return;
+        inorder(node.left, q);
+        q.enqueue(node.key);
 
+    }
+
+    public void deleteMin(){
+        root = deleteMin(root);
+    }
+
+    private Node deleteMin(Node x)
+    {
+        if (x.left == null) return x.right;
+        x.left = deleteMin(x.left);
+        x.count = 1 + size(x.left) + size(x.right);
+        return x;
+    }
+
+    public void delete(Key key) {
+        root = delete(root, key);
+    }
+
+    /**
+     * Hibbard Deletion:  We find the given Key in the tree with root x.
+     * If x has 0 children, delete x.
+     * If x has 1 child, replace x with its child.
+     * If x has >=2 children, replace x with the min element from x's right subtree.
+     * Note that Hibbard Deletion is unsatisfactory because its asymmetry leads to unbalanced trees
+     * with depth sqrt(n) rather than log_2 (n).
+     * @param x The root node of the tree from which to delete
+     * @param key The key to delete
+     * @return
+     */
+    private Node delete(Node x, Key key) {
+        if (x == null) return null;
+        int comparisonResult = key.compareTo(x.key);
+        if (comparisonResult < 0) x.left = delete (x.left, key);
+        else if (comparisonResult > 0) x.right = delete(x.right, key);
+        else {
+            if (x.right == null) return x.left;
+            if (x.left == null) return x.right;
+
+            Node t = x;
+            x = min(t.right);
+            x.right = deleteMin(t.right);
+            x.left = t.left;
+        }
+        x.count = size(x.left) + size(x.right) + 1;
+        return x;
+    }
+
+    public Key min() {
+        if (isEmpty()) return null;
+        return min(root).key;
+    }
+
+    private Node min(Node x) {
+        if (x.left == null) return x;
+        else                return min(x.left);
+    }
+
+    public boolean isEmpty() {
+        return size() == 0;
+    }
 }
