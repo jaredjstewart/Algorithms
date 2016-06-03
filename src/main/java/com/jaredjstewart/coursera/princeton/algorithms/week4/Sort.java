@@ -5,7 +5,7 @@ public abstract class Sort {
         return v.compareTo(w) < 0;
     }
 
-     static void exchange(Comparable[] a, int i, int j) {
+     public static void exchange(Comparable[] a, int i, int j) {
         Comparable swap = a[i];
         a[i] = a[j];
         a[j] = swap;
