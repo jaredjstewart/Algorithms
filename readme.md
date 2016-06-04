@@ -1,4 +1,5 @@
 #Algorithms#
 
-This project comprises my notes for [Princeton - Algorithms](https://www.coursera.org/course/algs4partI) on Coursera.
+This project comprises my notes for [Algorithms I](https://www.coursera.org/course/algs4partI) from Princeton on 
+Coursera.
  

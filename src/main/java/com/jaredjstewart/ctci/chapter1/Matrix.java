@@ -4,12 +4,40 @@ public class Matrix {
     private int[][] data;
     int rows, cols;
 
+    public int[][] getData(){
+        return data;
+    }
+
     public Matrix (int[][] data) {
         this.data = data;
+        rows = data.length;
+        cols = data[0].length;
     }
 
     public Matrix (int rows, int cols){
         this(new int[rows][cols]);
+    }
+
+    public Matrix rotateBy90(){
+        assert rows == cols;
+
+        Matrix transpose = this.transpose();
+
+        for (int i=0; i < rows; i++){
+            transpose.data[i] = reverse(transpose.data[i]);
+        }
+
+        return transpose;
+    }
+
+    private int[] reverse(int[] row){
+        for ( int i = 0; i < row.length / 2; i++) {
+            int temp = row[i];
+            row[i] = row[ row.length - i - 1];
+            row[row.length - i - 1] = temp;
+        }
+
+        return row;
     }
 
     public Matrix times(Matrix that) {
@@ -26,5 +54,17 @@ public class Matrix {
         }
 
         return new Matrix(result);
+    }
+
+    public Matrix transpose() {
+        int[][] transpose = new int[cols][rows];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+               transpose[j][i] = data[i][j];
+            }
+        }
+
+        return new Matrix(transpose);
     }
 }
