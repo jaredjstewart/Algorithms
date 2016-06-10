@@ -24,7 +24,7 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
     compile 'com.googlecode.princeton-java-algorithms:algorithms:4.0.1'
-
+    compile group: 'org.apache.commons', name: 'commons-math3', version: '3.2'
     jmh 'org.openjdk.jmh:jmh-generator-annprocess:1.12'
 }
 
